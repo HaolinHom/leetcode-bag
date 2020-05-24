@@ -11,11 +11,11 @@ const testData = utils.getEachTestParams([
     expected: 2,
   },
   {
-    args: [[23, 29], [20, 32, 23, 21, 33, 25]],
-    expected: 24,
+    args: [[23, 26], [20, 21, 23, 25, 29, 32, 33]],
+    expected: 25,
   },
   {
-    args: [[10, 20, 20, 20, 30], []],
+    args: [[10, 15, 20], [30, 35]],
     expected: 20,
   },
 ]);
