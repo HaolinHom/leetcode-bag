@@ -10,6 +10,14 @@ const testData = utils.getEachTestParams([
     args: [[1, 2], [3, 4]],
     expected: 2,
   },
+  {
+    args: [[23, 29], [20, 32, 23, 21, 33, 25]],
+    expected: 24,
+  },
+  {
+    args: [[10, 20, 20, 20, 30], []],
+    expected: 20,
+  },
 ]);
 
 test.each(testData)(
