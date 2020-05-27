@@ -8,7 +8,7 @@ const testData = utils.getEachTestParams([
   },
   {
     args: [[1, 2], [3, 4]],
-    expected: 2,
+    expected: 2.5,
   },
   {
     args: [[23, 26], [20, 21, 23, 25, 29, 32, 33]],
@@ -23,7 +23,7 @@ const testData = utils.getEachTestParams([
 test.each(testData)(
   '寻找两个正序数组的中位数(%j, %j): ',
   (numArr1, numArr2, expected) => {
-    expact(findMedianSortedArrays(numArr1, numArr2)).toEqual(expected);
+    expect(findMedianSortedArrays(numArr1, numArr2)).toEqual(expected);
   }
 );
 
