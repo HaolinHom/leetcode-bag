@@ -1,4 +1,4 @@
-const utils = require('../utils');
+const utils = require('../../utils');
 const twoSum = require('./index');
 
 const testData = utils.getEachTestParams([

@@ -1,4 +1,4 @@
-const utils = require('../utils');
+const utils = require('../../utils');
 const longestPalindrome = require('./index');
 
 const testData = utils.getEachTestParams([

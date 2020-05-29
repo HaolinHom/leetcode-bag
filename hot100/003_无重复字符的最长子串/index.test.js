@@ -1,4 +1,4 @@
-const utils = require('../utils');
+const utils = require('../../utils');
 const lengthOfLongestSubstring = require('./index');
 
 const testData = utils.getEachTestParams([
