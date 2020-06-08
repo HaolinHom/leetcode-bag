@@ -14,6 +14,26 @@ const testData = utils.getEachTestParams([
       [-1, -1, 2],
     ],
   },
+  {
+    args: [[0, 0 ,0 ,0 ,0 ,0]],
+    expected: [
+      [0, 0, 0]
+    ],
+  },
+  {
+    args: [[5, -2, -3, -3, -2, 5]],
+    expected: [
+      [5, -2, -3]
+    ],
+  },
+  {
+    args: [[1, -1]],
+    expected: [],
+  },
+  {
+    args: [[]],
+    expected: [],
+  },
 ].map((item) => {
   item.expected = expectedAdaptor(item.expected);
   return item;
@@ -22,9 +42,12 @@ const testData = utils.getEachTestParams([
 test.each(testData)(
   '三数之和(%j): ',
   (numArr, expected) => {
-    expect(expected).toEqual(
-      expect.arrayContaining(expectedAdaptor(threeSum(numArr)))
+    const result = expectedAdaptor(threeSum(numArr));
+
+    expect(result).toEqual(
+      expect.arrayContaining(expected)
     );
+    expect(result).toHaveLength(expected.length);
   }
 );
 
