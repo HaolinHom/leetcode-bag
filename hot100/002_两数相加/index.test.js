@@ -1,21 +1,20 @@
 const utils = require('../../utils');
-const addTwoNumbersUtils = require('./utils');
 const addTwoNumbers = require('./index');
 
 const testData = utils.getEachTestParams([
   {
     args: [
-      addTwoNumbersUtils.createListNode([2,4,3]),
-      addTwoNumbersUtils.createListNode([5,6,4]),
+      utils.createListNode([2,4,3]),
+      utils.createListNode([5,6,4]),
     ],
-    expected: addTwoNumbersUtils.createListNode([7,0,8]),
+    expected: utils.createListNode([7,0,8]),
   },
   {
     args: [
-      addTwoNumbersUtils.createListNode([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]),
-      addTwoNumbersUtils.createListNode([5,6,4]),
+      utils.createListNode([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]),
+      utils.createListNode([5,6,4]),
     ],
-    expected: addTwoNumbersUtils.createListNode([6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]),
+    expected: utils.createListNode([6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]),
   },
 ]);
 
