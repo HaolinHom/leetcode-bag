@@ -11,25 +11,25 @@ function ListNode(val) {
  * @return {ListNode}
  */
 var removeNthFromEnd = function(head, n) {
-  let command = 'head';
+  let result = new ListNode(null);
+  result.next = head;
 
-  function getAll(head, command) {
-    if (head.next) {
-      command += '.next';
-      return getAll(head.next, command);
-    }
-    return command;
+  let node1 = result;
+  let node2 = result;
+
+  for (let i = 0; i < n + 1; i++) {
+    node2 = node2.next;
   }
 
-  command = getAll(head, command);
-
-  for (let i = 1; i < n; i++) {
-    command = command.slice(0, command.lastIndexOf('.next'));
+  while (node2) {
+    node1 = node1.next;
+    node2 = node2.next;
   }
 
-  eval(`${command} = ${command + '.next'}`);
+  node1.next = node1.next.next;
 
-  return head;
+  return result.next;
 };
 
 module.exports = removeNthFromEnd;
+
