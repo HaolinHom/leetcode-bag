@@ -11,12 +11,12 @@ const testData = utils.getEachTestParams([
     expected: true,
   },
   {
-    args: ["(]"],
+    args: ['(]'],
     expected: false,
   },
   {
-    args: ["([)]"],
-    expected: true,
+    args: ['([)]'],
+    expected: false,
   },
   {
     args: ["{[]}"],
@@ -25,9 +25,9 @@ const testData = utils.getEachTestParams([
 ]);
 
 test.each(testData)(
-  '* 有效的括号: ',
+  '# 有效的括号: ',
   (str, expected) => {
-    expect(isValid(str)).toEqual(expected);
+    expect(isValid(str)).toBe(expected);
   }
 );
 
