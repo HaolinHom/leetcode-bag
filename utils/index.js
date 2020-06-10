@@ -11,7 +11,7 @@ module.exports = {
         if (!Array.isArray(item.args)) {
           item.args = [];
         }
-        if (item.expected) {
+        if (item.hasOwnProperty('expected')) {
           item.args.push(item.expected);
         }
         return item.args;
