@@ -3,41 +3,31 @@
  * @return {number[][]}
  */
 var permute = function(nums) {
-  if (nums.length <= 1) {
-    return [nums]
-  }
+  let storage = [];
+  let usedMap = {};
 
-  let storage = [
-    [nums.shift(), nums.shift()],
-  ];
-  storage.push([storage[0][1], storage[0][0]]);
+  function getPermute(accumulate) {
+    if (accumulate.length === nums.length) {
+      return storage.push(accumulate.slice());
+    }
 
-  if (nums.length === 0) {
-    return storage;
-  }
-
-  function getPermute(arr, accumulate) {
-    let tag = arr.shift();
-    let temp;
-    let tempStorage = [];
-
-    for (let i = 0; i < accumulate.length; i++) {
-      for (let j = 0; j <= accumulate[i].length; j++) {
-        temp = accumulate[i].slice();
-        temp.splice(j, 0, tag);
-        tempStorage.push(temp);
+    for (let num of nums) {
+      if (usedMap[num]) {
+        continue;
       }
-      temp = null;
-    }
+      accumulate.push(num);
+      usedMap[num] = true;
 
-    if (arr.length === 0) {
-      return tempStorage;
-    }
+      getPermute(accumulate);
 
-    return getPermute(arr, tempStorage);
+      accumulate.pop();
+      usedMap[num] = false;
+    }
   }
 
-  return getPermute(nums, storage);
+  getPermute([]);
+
+  return storage;
 };
 
 module.exports = permute;
